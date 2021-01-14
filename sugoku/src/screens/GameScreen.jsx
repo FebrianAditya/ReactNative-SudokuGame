@@ -12,12 +12,16 @@ export default function GameScreen({ navigation, route }) {
 
     return(
         <View style={styles.container}>
-            <Text>Gesst {name}</Text>
+            <View style={styles.compGreeting}>
+                <View style={styles.geest}>
+                    <Text>You can do it {name} !!!</Text>
+                </View>
             <Button 
                 onPress={() => goToHome()}
-                title="Home"
-                color="#841584"
+                title="Back to Home"
+                color="#2ed573"
             />
+            </View>
             <BoxComponent/>
         </View>
     )
@@ -26,8 +30,14 @@ export default function GameScreen({ navigation, route }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "white",
+        backgroundColor: "#eccc68",
         alignItems: "center",
         justifyContent: "center"
+    },
+    compGreeting: {
+        marginBottom: 20
+    },
+    geest: {
+        marginBottom: 10
     }
 })

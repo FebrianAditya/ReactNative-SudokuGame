@@ -34,14 +34,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  textStyle: {
-    flex: 0,
-    fontSize: 14,
-    textAlign: "center"
-  },
-  board: {
-    display: "flex",
-    flexDirection: "row"
   }
 });

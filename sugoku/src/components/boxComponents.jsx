@@ -150,12 +150,12 @@ export default function BoxComponent() {
               <Button
               onPress={(data) => InputData(true)}
               title="Submit"
-              color="#841584"
+              color="#2ed573"
               />
               <Button
               onPress={(data) => SolvedData(true)}
               title="Solved"
-              color="#841584"
+              color="#e84118"
               />
             </View>
           </View>
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     flex: 0,
-    backgroundColor: '#fff',
+    backgroundColor: '#eccc68',
     alignItems: 'center',
     justifyContent: 'center',
     aspectRatio: 1,
@@ -188,24 +188,24 @@ const styles = StyleSheet.create({
   },
   cssDua: {
     flexDirection: "row",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    marginTop: 20
   },
   box: {
-    backgroundColor: "red",
+    backgroundColor: "#ff6b81",
     width: 30, // 10% kalau di HP
     height: 30,
     borderWidth: 1,
     borderColor: "black",
-    fontSize: 80,
     alignItems: 'center',
     justifyContent: 'center',
     aspectRatio: 1,
     padding: 0,
-    margin: 1,
+    margin: 2,
     alignSelf: 'center'
   },
   boxDua: {
-    backgroundColor: "blue",
+    backgroundColor: "#f1f2f6",
     width: 30,
     height: 30,
     borderWidth: 1,
@@ -214,7 +214,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     aspectRatio: 1,
     padding: 0,
-    margin: 1,
-    alignSelf: 'center'
+    margin: 2,
+    alignSelf: 'center',
+    textAlign: "center"
   }
 });

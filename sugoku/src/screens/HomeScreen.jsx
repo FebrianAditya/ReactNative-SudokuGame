@@ -24,58 +24,94 @@ export default function HomeScreen(props) {
 
     return(
         <View style={styles.container}>
-            <Text>
-                Welcome, Please Input Your Name ! 
-            </Text>
-            <TextInput
-            style={[styles.inputName]}
-            onChangeText={text => handleInputName(text)}
-            />
-            <View style={styles.row}>
-                <Button
-                onPress={() => goToGamePlay('easy')}
-                title="Easy"
-                color="#841584"
-                />
-                <Button
-                onPress={() => goToGamePlay('medium')}
-                title="Medium"
-                color="#841584"
-                />
-                <Button
-                onPress={() => goToGamePlay('hard')}
-                title="Hard"
-                color="#841584"
+            <View style={styles.collectionWord}>
+                <Text style={styles.titleGame}>SUDOKU</Text>
+                <Text style={styles.greeting}>
+                    Welcome, Please Input Your Name ! 
+                </Text>
+                <TextInput
+                style={[styles.inputName]}
+                onChangeText={text => handleInputName(text)}
                 />
             </View>
+
+            <View style={styles.container}>
+                <View style={styles.buttonCss}>
+                    <View style={styles.compButton}>
+                        <Button
+                        onPress={() => goToGamePlay('easy')}
+                        title="Easy"
+                        color="#ff6b81"
+                        />
+                    </View>
+                    <View style={styles.compButton}>
+                        <Button
+                        onPress={() => goToGamePlay('medium')}
+                        title="Medium"
+                        color="#ff6b81"
+                        />
+                    </View>
+                    <View style={styles.compButton}>
+                        <Button
+                        onPress={() => goToGamePlay('hard')}
+                        title="Hard"
+                        color="#ff6b81"
+                        />
+                    </View>
+                </View>
+            </View>
         </View>
+     
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "white",
+    collectionWord: {
         alignItems: "center",
         justifyContent: "center"
+    },
+    titleGame: {
+        fontSize: 25,
+        marginTop: 70
+    },
+    greeting: {
+        marginTop: 80,
+        marginBottom: 20
+    },
+    conTry: {
+        flex: 1
+    },
+    container: {
+        flex: 1,
+        backgroundColor: "#eccc68",
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    buttonCss: {
+        flex: 1
+    },
+    compButton: {
+        marginBottom: 15
     },
     row: {
         display: "flex",
         flexDirection: "row",
-        marginTop: "2%"
+        marginTop: 20,
+        justifyContent: "center"
     },
     inputName: {
         backgroundColor: "white",
-        width: 80,
+        marginBottom: 80,
+        width: 190,
         height: 30,
         borderWidth: 1,
         borderColor: "black",
         alignItems: 'center',
         justifyContent: 'center',
-        aspectRatio: 1,
-        fontSize: 20,
+        fontSize: 19,
         padding: 0,
         margin: 1,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        textAlign: "center"
       }
 })
