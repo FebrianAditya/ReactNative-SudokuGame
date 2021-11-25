@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 export default function BoxComponent() {
     
     const [ duplicateBoard, setDuplicateBoard ] = useState([]) 
-    const board = useSelector(state => state.board) // {}
+    const board = useSelector(state => state.board)
     const difficult = useSelector(state => state.difficult)
     const status = useSelector(state => state.status)
     const dispatch = useDispatch()
@@ -18,10 +18,8 @@ export default function BoxComponent() {
       column: 0,
       value: 0
     }
-    // console.log(status, " ini status di boxComponent")
 
     useEffect(() => {
-      // console.log("Love you")
       // console.log(difficult, "difficult dari Box Component")
       dispatch(geBoard(difficult))
     }, [])
@@ -30,9 +28,7 @@ export default function BoxComponent() {
       const deepClonedObject = _.cloneDeep(board)
       setDuplicateBoard(deepClonedObject)
     }, [board])
-    // console.log(board.length, "<<-------- Length nya")
-    // console.log(board, "<<--------INI APAAN SIH")
-    
+    // console.log(board.length, "<<-------- Length")
     
     function handleInput(row, column, text) {
       const dataInputNumber = Number(text)
@@ -42,14 +38,11 @@ export default function BoxComponent() {
       dataInput.value = dataInputNumber
       tampDataBoard[dataInput.row][dataInput.column] = dataInput.value
       // dispatch(setDuplicateBox(tampDataBoard))
-      // console.log(dataInput, "---New")
       setDuplicateBoard(tampDataBoard)
     }
 
     function InputData(data) {
-      // console.log("hihi")
       const createTwoButtonAlert = () =>
-      // console.log("woy ini alert Input Data")
       Alert.alert(
         "Alert Title",
         "Do You Will Check your answer, and end the game ?",
@@ -64,15 +57,12 @@ export default function BoxComponent() {
         { cancelable: false }
         );
         if(data) {
-        createTwoButtonAlert()
-      }
-      // console.log("--masuk1")
+          createTwoButtonAlert()
+        }
     }
     
     function SolvedData(data) {
-      // console.log("test")
       const createTwoButtonAlert = () =>
-      // console.log("ini alert")
       Alert.alert(
         "Alert Title",
         "Do You Give Up?",
@@ -89,79 +79,75 @@ export default function BoxComponent() {
         if(data) {
           createTwoButtonAlert()
         }
-      }
+    }
 
-      
-      const navigation = useNavigation();
+    const navigation = useNavigation();
 
-      if(status === "unsolved") {
-        // console.log("Hshshs")
-        navigation.replace("Finish")
-      }
+    if(status === "unsolved") {
+      navigation.replace("Finish")
+    }
       
-      return (
-        <>
-        {
-          !board &&
-          <View style={styles.container}>
-          <Text>Loading</Text>
-            <StatusBar style="auto" />
-          </View>
-        }
-        {
-          board.length > 0 &&
-          <View style={styles.container}>
-           {/* <Text>{JSON.stringify(status)}</Text> */}
-            {console.log(duplicateBoard, "ini yang di render")}
-            {
-              board.map((oneSquare, idxSatu) => {
-                return(
-                    <View style={styles.cssSatu} key={idxSatu}>
-                    {
-                      oneSquare.map((el, idxDua)=>{
-                        //  {console.log(el)}
-                        if(el !== 0) {
-                          // console.log(`${idxSatu}, ${idxDua} [${el}], "-bukan 0"`)
-                          return (
-                            <View style={styles.box} key={idxDua}>
-                              <Text>
-                                {el}
-                              </Text>
-                            </View>
-                          )
-                        } else {
-                          // console.log(idxSatu, idxDua, "-ini 0")
-                          return (
-                              <TextInput 
+    return (
+      <>
+      {
+        !board &&
+        <View style={styles.container}>
+        <Text>Loading</Text>
+          <StatusBar style="auto" />
+        </View>
+      }
+      {
+        board.length > 0 &&
+        <View style={styles.container}>
+          {console.log(duplicateBoard, "ini yang di render")}
+          {
+            board.map((oneSquare, idxSatu) => {
+              return(
+                <View style={styles.cssSatu} key={idxSatu}>
+                  {
+                    oneSquare.map((el, idxDua)=>{
+                      if(el !== 0) {
+                        // console.log(`${idxSatu}, ${idxDua} [${el}], "-bukan 0"`)
+                        return (
+                          <View style={styles.box} key={idxDua}>
+                            <Text>
+                              {el}
+                            </Text>
+                          </View>
+                        )
+                      } else {
+                        // console.log(idxSatu, idxDua, "-ini 0")
+                        return (
+                            <TextInput 
                               style={styles.boxDua}
                               key={idxDua}
                               onChangeText={text => handleInput(idxSatu, idxDua, text)}
                               keyboardType = "number-pad"
-                              />
-                          )
-                        }
-                      })
-                    }
-                    </View>
-                )
-              })
-            }
-            <View style={styles.cssDua}>
-              <Button
+                            />
+                        )
+                      }
+                    })
+                  }
+                </View>                 
+              )
+            })
+          }
+          <View style={styles.cssDua}>
+            <Button
               onPress={(data) => InputData(true)}
               title="Submit"
               color="#2ed573"
-              />
-              <Button
+            />
+            <Button
               onPress={(data) => SolvedData(true)}
               title="Solved"
               color="#e84118"
-              />
-            </View>
+            />
           </View>
-        }
-      </>
-    )
+        </View>
+      }
+    </>
+  )
 }
 
 const styles = StyleSheet.create({

@@ -8,11 +8,11 @@ const encodeParams = (params) =>
 
 export function geBoard(difficult) {
     return (dispatch, getState) => {
-        // console.log(difficult, "difficult dari action")
+        // console.log(difficult, " ===> difficult dari action")
         fetch(`https://sugoku.herokuapp.com/board?difficulty=${difficult}`)
             .then(res => res.json())
             .then(data => {
-                // console.log(data, "ini di action medium")
+                // console.log(data, " ===> ini di action medium")
                 dispatch({
                     type: "GET_BOARD",
                     board: data.board
@@ -26,7 +26,7 @@ export function geBoard(difficult) {
 
 export function setDuplicateBox(data) {
     return (dispatch, getState) => {
-        // console.log(data, "00000")
+        // console.log(data, "==> Data Masuk")
         dispatch({
             type: "SET_DUPLICATE_BOARD",
             board: data
@@ -37,7 +37,7 @@ export function setDuplicateBox(data) {
 export function validateInputData(board) {
     const data = {board: board}
     return (dispatch, getState) => {
-        // console.log(data, "dari action")
+        // console.log(data, "==> dari action")
             axios({ // pake axios, karena kalau pake fetch data nya ga kebaca. Padahal udh dikasih headers json
                 url: "https://sugoku.herokuapp.com/validate",
                 method: "POST",
@@ -66,7 +66,6 @@ export function solve(board) {
             data: encodeParams(data)
         })
             .then(({data}) => {
-                // console.log("masuk ke solved")
                 // console.log(data.solution, "ini value di action solved")
                 // dispatch(setBoard(data.solution))
                 dispatch({

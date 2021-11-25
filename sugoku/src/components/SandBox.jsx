@@ -3,14 +3,10 @@ import { TextInput } from 'react-native';
 
 export default function UselessTextInput() {
   const [value, onChangeText] = React.useState('');
-    console.log(value)
 
-    // function onChangeText2(e) {
-    //     console.log(e, "---")
-    // }
-    useEffect(() => {
-        console.log(value, "---")
-    }, [value])
+  useEffect(() => {
+    console.log(value, "---")
+  }, [value])
 
   return (
     <TextInput
@@ -22,9 +18,9 @@ export default function UselessTextInput() {
 };
 
 <View style={styles.container}>
-            <View style= {styles.board}>
-            <BoxComponent />
-            {/* <UselessTextInput></UselessTextInput> */}
-            </View>
-            <StatusBar style="auto" />
-          </View>
+  <View style= {styles.board}>
+  <BoxComponent />
+  {/* <UselessTextInput></UselessTextInput> */}
+  </View>
+  <StatusBar style="auto" />
+</View>

@@ -16,11 +16,11 @@ export default function GameScreen({ navigation, route }) {
                 <View style={styles.geest}>
                     <Text>You can do it {name} !!!</Text>
                 </View>
-            <Button 
-                onPress={() => goToHome()}
-                title="Back to Home"
-                color="#2ed573"
-            />
+                <Button 
+                    onPress={() => goToHome()}
+                    title="Back to Home"
+                    color="#2ed573"
+                />
             </View>
             <BoxComponent/>
         </View>

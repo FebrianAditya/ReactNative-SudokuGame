@@ -9,16 +9,13 @@ export default function HomeScreen(props) {
     const dispatch = useDispatch()
 
     function goToGamePlay(difficult) {
-        // console.log(difficult, "ini data di home")
         dispatch(setDifficult(difficult))
-
         props.navigation.navigate("Game", {
             name: user
         })
     }
 
     function handleInputName(text) {
-        // console.log(text, "ini name di function HOme");
         setUser(text)
     }
 
